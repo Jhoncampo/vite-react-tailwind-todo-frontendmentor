@@ -5,7 +5,7 @@ import IconCheck from "./icons/IconCheck";
 const TodoItem = ({ todo, removeTodo, updateTodo }) => {
     const { title, id, completed } = todo;
     return (
-        <article className="flex gap-4 justify-center items-center border-b border-b-gray-400 ">
+        <article className="flex gap-4 justify-center items-center border-b border-b-gray-40">
             <button
                 className={` w-5 h-5 rounded-full border-2 flex-none flex justify-center items-center ${
                     completed
@@ -17,7 +17,7 @@ const TodoItem = ({ todo, removeTodo, updateTodo }) => {
                 {completed && <IconCheck />}
             </button>
 
-            <p className={`text-gray-600 grow ${completed && "line-through"}`}>
+            <p className={`text-gray-600 grow dark:text-gray-300 ${completed && "line-through"}`}>
                 {title}
             </p>
             <button className="flex-none" onClick={() => removeTodo(id)}>
