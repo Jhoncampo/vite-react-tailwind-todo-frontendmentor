@@ -6,7 +6,7 @@ import TodoList from "./components/TodoList";
 import TodoComputed from "./components/TodoComputed";
 import TodoFilter from "./components/TodoFilter";
 
-const initialStateTodos = JSON.parse(localStorage.getItem("todos" || []));
+const initialStateTodos = JSON.parse(localStorage.getItem("todos")) || [];
 
 const App = () => {
     const [todos, setTodos] = useState(initialStateTodos);
@@ -42,7 +42,9 @@ const App = () => {
             console.log(error);
         }
     };
+
     const computedItemsLeft = todos.filter(todo => !todo.completed).length;
+
     const clearCompeted = () => {
         try {
             setTodos(todos.filter((todo) => !todo.completed));
